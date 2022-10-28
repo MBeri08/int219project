@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hello11.css">
+
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="bg">
+
+    <div class="flex">
+        <div class="card">
+            <!-- onclick="flip(e)" -->
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg1" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img1" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg2" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img2" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg3" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img3" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg4" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img4" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg5" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img5" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg6" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img6" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="figg7" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" o class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img7" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg8" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img8" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" class="item">
+                <div class="flip-card-inner" id="fimg9" onclick="flip(this.id)">
+                    <div class="flip-card-front">
+                        <img src="four.jpg" class="item">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src=" " id="img9" class="item1">
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <h1>Progress Bar</h1>
+                <progress id="bar" value="0" max="100"></progress>
+                <p id="perce">0%</p>
+            </div>
+            <script>
+                var p = 0;
+                var c = 0;
+                var gc = 0;
+
+                var arr1 = ["gift.jpg", "gift.jpg", "gift.jpg", "bomb.jpg", "miss.jpg", "miss.jpg", "miss.jpg", "miss.jpg", "miss.jpg"]
+                var arr2 = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9"]
+                var randomno = Math.floor(Math.random() * arr1.length);//random no. 0 to 8
+                for (i = 0; i <= 8; i++) {
+                    document.getElementById(arr2[i]).src = arr1[randomno];
+                    arr1.splice(randomno, 1);
+                    var randomno = Math.floor(Math.random() * arr1.length);
+                }
+                function flip(clicked_id) {
+                    document.getElementById(clicked_id).style.transform = 'rotateY(180deg)';
+                    let x = document.getElementById(clicked_id);
+                    let src = x.firstElementChild.nextElementSibling.firstElementChild.getAttribute("src");
+
+                    if (src == "bomb.jpg") {
+                        p = 0;
+                        const tt = setTimeout(cc, 600);
+                        function cc() {
+                            alert("you lost");
+                            window.location.reload();
+                        }
+                    }
+                    if (src == "gift.jpg") {
+                        gc++;
+                        p++;
+                        if (gc == 3) {
+                            const tt = setTimeout(cc, 600);
+                            function cc() {
+                                alert("you won the match");
+                                window.location.reload();
+                            }
+                        }
+                    }
+                    var pr = Math.floor(p * 100 / ++c)
+                    document.getElementById("bar").value = pr;
+                    document.getElementById("perce").innerHTML = pr + "%";
+                }
+
+
+
+            </script>
+
+</body>
+
+</html>
